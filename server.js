@@ -96,7 +96,7 @@ app.get("/health", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Midtrans Gateway Server is Running`);
   console.log(
-    `📡 Webhook endpoint: https://midtrans.iqbalm.my.id/webhook/midtrans`,
+    `📡 Webhook endpoint: https://${process.env.VIRTUAL_HOST}/webhook/midtrans`,
   );
-  console.log(`🏥 Health check: https://midtrans.iqbalm.my.id/health`);
+  console.log(`🏥 Health check: https://${process.env.VIRTUAL_HOST}/health`);
 });
