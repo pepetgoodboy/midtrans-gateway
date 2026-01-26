@@ -1,0 +1,15 @@
+name: midtrans-gateway
+services:
+  midtrans-gateway:
+    container_name: midtrans-gateway
+    build: .
+    image: midtrans-gateway:1.0.0
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - pepet-network
+
+networks:
+  pepet-network:
+    external: true
