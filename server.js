@@ -39,6 +39,9 @@ app.post("/webhook/midtrans", async (req, res) => {
     } else if (order_id.startsWith("flx-ott")) {
       targetUrl = process.env.ONTHETOK_API_URL;
       console.log(`Order ${order_id} → Forwarding to OnTheTok`);
+    } else if (order_id.startsWith("AICEO")) {
+      targetUrl = process.env.AICEO_API_URL;
+      console.log(`Order ${order_id} → Forwarding to AICEO`);
     } else {
       console.error(`Unknown order_id prefix: ${order_id}`);
       return res.status(400).json({
