@@ -42,6 +42,9 @@ app.post("/webhook/midtrans", async (req, res) => {
     } else if (order_id.startsWith("aiceo")) {
       targetUrl = process.env.AICEO_API_URL;
       console.log(`Order ${order_id} → Forwarding to AICEO`);
+    } else if (order_id.startsWith("flx-edu")) {
+      targetUrl = process.env.EDUFLEXEET_API_URL;
+      console.log(`Order ${order_id} → Forwarding to EduFlexeet`);
     } else {
       console.error(`Unknown order_id prefix: ${order_id}`);
       return res.status(400).json({
