@@ -45,6 +45,9 @@ app.post("/webhook/midtrans", async (req, res) => {
     } else if (order_id.startsWith("flx-edu")) {
       targetUrl = process.env.EDUFLEXEET_API_URL;
       console.log(`Order ${order_id} → Forwarding to EduFlexeet`);
+    } else if (order_id.startsWith("flx-fsk")) {
+      targetUrl = process.env.FINSIKA_API_URL;
+      console.log(`Order ${order_id} → Forwarding to Finsika`);
     } else if (order_id.startsWith("flx-tlpt")) {
       targetUrl = process.env.TELEPATH_API_URL;
       console.log(`Order ${order_id} → Forwarding to Telepath`);
