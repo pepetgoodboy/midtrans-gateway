@@ -11,8 +11,8 @@ services:
     mem_reservation: 64m
     restart: unless-stopped
     networks:
-      - pepet-network
+      - flexeet-network
 
 networks:
-  pepet-network:
+  flexeet-network:
     external: true
