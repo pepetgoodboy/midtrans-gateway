@@ -39,6 +39,10 @@ app.post("/webhook/midtrans", async (req, res) => {
     } else if (order_id.startsWith("flx-ott")) {
       targetUrl = process.env.ONTHETOK_API_URL;
       console.log(`Order ${order_id} → Forwarding to OnTheTok`);
+      // Staging OnTheTok
+    } else if (order_id.startsWith("flxst-ott")) {
+      targetUrl = process.env.ONTHETOK_STAGING_API_URL;
+      console.log(`Order ${order_id} → Forwarding to OnTheTok Staging`);
     } else if (order_id.startsWith("aiceo")) {
       targetUrl = process.env.AICEO_API_URL;
       console.log(`Order ${order_id} → Forwarding to AICEO`);
