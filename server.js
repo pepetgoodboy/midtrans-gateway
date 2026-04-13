@@ -51,6 +51,9 @@ app.post("/webhook/midtrans", async (req, res) => {
     } else if (order_id.startsWith("flx-tlpt")) {
       targetUrl = process.env.TELEPATH_API_URL;
       console.log(`Order ${order_id} → Forwarding to Telepath`);
+    } else if (order_id.startsWith("INV")) {
+      targetUrl = process.env.INVOICEKU_API_URL;
+      console.log(`Order ${order_id} → Forwarding to InvoiceKu`);
     } else {
       console.error(`Unknown order_id prefix: ${order_id}`);
       return res.status(400).json({
